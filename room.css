@@ -1,0 +1,360 @@
+:root {
+    --dekstop-color: rgba(144, 196, 222, 0.568);
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-attachment: fixed;
+    background-image: linear-gradient(45deg,
+            hsl(219deg 64% 63%) 0%,
+            hsl(214deg 64% 69%) 21%,
+            hsl(209deg 63% 76%) 36%,
+            hsl(205deg 60% 83%) 54%,
+            hsl(200deg 53% 90%) 100%);
+    height: 100vh;
+}
+
+.room {
+    transform: scale(1.5);
+    perspective: 50em;
+    perspective-origin: 50% 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.floor {
+    transform-style: preserve-3d;
+    margin: 200px 0 0 100px;
+    position: relative;
+    height: 300px;
+    aspect-ratio: 1;
+    background: lightgray;
+    transform: rotateX(90deg) rotateZ(50deg);
+    box-shadow: 103px 96px 68px -106px rgba(0,0,0,0.3) inset, 10px 18px 126px 11px rgba(0,0,0,0.31);
+}
+
+.right-wall {
+    position: absolute;
+    top: -100px;
+    height: 200px;
+    width: 300px;
+    background: #FFFFDF;
+    transform: rotateX(90deg) translateY(100px);
+    box-shadow: inset 17px 12px 30px -6px rgba(0, 0, 0, 0.14);
+}
+
+.left-wall {
+    position: absolute;
+    left: -100px;
+    height: 300px;
+    width: 200px;
+    background: #FFFFDF;
+    transform: rotateY(90deg) translateX(-100px);
+    box-shadow: inset -17px 12px 30px -6px rgba(0, 0, 0, 0.12);
+}
+
+.window {
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    width: 130px;
+    height: 90px;
+    background-image: linear-gradient(-45deg,
+    rgb(187, 214, 255) 0%,
+    hsl(205deg 60% 83%) 54%,
+    hsl(200deg 53% 90%) 100%);
+    border: 6px white solid;
+}
+
+.desk-top {
+    position: absolute;
+    right: 10px;
+    width: 100px;
+    height: 60px;
+    transform: translateZ(50px);
+    background: var(--dekstop-color);
+    border-radius: 6px;
+    transform-style: preserve-3d;
+}
+.desk-top::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: 45px;
+    transform: translateZ(-50px);
+    border-radius: 0 0 10px 10px;
+    right: -4px;
+    box-shadow: 34px 188px 46px -159px rgba(0,0,0,0.2) inset;
+}
+
+.keyboard-mat {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 3px;
+    color: white;
+    background-color: black;
+    width: 75%;
+    height: 40%;
+}
+.pad-writing {
+    font-size: 4px;
+    margin-right: 5px;
+}
+.desk-legs {
+    transform-style: preserve-3d;
+    position: absolute;
+}
+.leg {
+    position: absolute;
+    transform-style: preserve-3d;
+
+    background-image: linear-gradient(rgb(134, 134, 134), white);
+}
+.leg1, .leg2 {
+    height: 4px;
+    width: 51px;
+    top: 45px;
+    border-radius: 0px 1.5px 1px 0px;
+    transform: rotateY(90deg) rotateX(-20deg) translateX(25px) rotateZ(25deg) skew(25deg);
+}
+
+.leg1 {right: -15px;}
+.leg2 {left: -15px;}
+
+.leg3, .leg4 {
+    top: 10px;
+    height: 4px;
+    width: 47px;
+    transform: rotateY(90deg) rotateX(-20deg) translateX(25px);
+    border-radius: 0px 1px 1px 0px;
+}
+.leg3 {right: -17px;}
+.leg4 {left: -17px;}
+
+.desk-left-side, .desk-right-side {
+    bottom: 10px;
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    transform: translateZ(-1.5px);
+    background-color: silver;
+    transform-style: preserve-3d;
+}
+.desk-left-side::after, .desk-right-side::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform-origin: top right;
+    transform: translateX(1.5px) rotateY(270deg);
+    background: silver;
+}
+.desk-left-side::before, .desk-right-side::before {
+    content: "";
+    position: absolute;
+    bottom: -0.7px;
+    left: -0.4px;
+    width: 100%;
+    height: 2px;
+    transform: rotateX(270deg) translateY(1px);
+    background-color: silver;
+}
+.desk-left-side {right: 5px;}
+.desk-right-side {left: 5px;}
+
+.cabinet {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 175px;
+    height: 40px;
+    box-shadow: 1px 3px 33px 0px rgba(0,0,0,0.5);
+
+}
+.shelve-top, .shelve1, .shelve2, .shelve-bottom {
+    width: 173px;
+    left: 1px;
+    height: 38px;
+    position: absolute;
+    background-image: linear-gradient(
+        rgb(218, 206, 174) 0%, 
+        rgb(233, 223, 195) 50%, 
+        rgb(226, 213, 178) 100%);
+        background-size: 100% 20%;
+    background-repeat: repeat;
+    box-shadow: 1px 87px 55px -67px rgba(0,0,0,0.3) inset;
+    transform-style: preserve-3d;
+
+}
+.shelve-bottom {
+    transform: translateZ(3px);
+    height: 41px;
+}
+
+.shelve-top {
+    height: 41px;
+    box-shadow: none;
+    transform: translateZ(120px);
+    background-size: 100% 20%;
+    background-repeat: repeat;
+}
+.shelve1 {transform: translateZ(90px);}
+.shelve2 {transform: translateZ(30px);}
+
+.shelve-top::after, .shelve1::after, .shelve2::after, .shelve-bottom::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-image: inherit;
+    bottom: -1px;
+    transform: rotateX(90deg) translateY(-1.5px);
+}
+
+.shelve-left, .shelve-right, .shelve-vertical {
+    width: 120px;
+    height: inherit;
+    position: absolute;
+    transform-style: preserve-3d;
+    background-size: 100% 20%;
+    background-repeat: repeat;
+    background-image: linear-gradient(
+        rgb(218, 206, 174) 0%, 
+        rgb(233, 223, 195) 50%, 
+        rgb(226, 213, 178) 100%);
+        box-shadow: 1px 64px 82px -30px rgba(0,0,0,0.53) inset;
+
+}
+.shelve-left {
+    left: -56px;
+    transform: rotateY(90deg) translateX(-60px);
+}
+
+.shelve-right {
+    box-shadow: 1px 3px 33px 0px rgba(0,0,0,0.31) inset;
+    transform-style: preserve-3d;
+    position: absolute;
+    background-image: linear-gradient(
+        rgb(218, 206, 174) 0%, 
+        rgb(233, 223, 195) 50%, 
+        rgb(226, 213, 178) 100%);
+    left: 115px;
+    transform: rotateY(90deg) translateX(-60px);
+}
+.shelve-right::after, .shelve-left::after, .shelve-vertical::after{
+    content: "";
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: -2px;
+    background-image: inherit;
+    transform: rotateX(90deg) translateY(-1.5px);
+}
+.shelve-vertical {
+    background-color: black;
+    left: -20px;
+    transform: rotateY(90deg) translateX(-60px);
+}
+
+.bed {
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 190px;
+    box-shadow: 200px 18px 224px -86px rgba(0,0,0,0.49) inset;
+}
+
+.bed-top, .bed-side {
+    background: linear-gradient(rgba(255,255,255,1) 70%, rgb(0, 10, 148) 10%);
+    background-size: 100% 7px;
+    background-repeat: repeat;
+    height: 170px;
+    transform-style: preserve-3d;
+    box-shadow: 1px -1px 41px -1px rgba(0,0,0,0.36) inset;
+}
+
+.bed-top {
+    position: absolute;
+    width: 145px;
+    transform: translateZ(36px);
+}
+.bed::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 190px;
+    background: navy;
+    transform: translateZ(6px);
+}
+.bed-side {
+    position: absolute;
+    right: 5px;
+    width: 15px;
+    transform-origin: bottom right;
+    transform: rotateY(90deg) translateX(-21.3px);
+}
+.bed-side::after, .bed-top::after {
+    content: "";
+    position: absolute;
+    background: white;
+    width: inherit;
+    bottom: -21px;
+    height: 21px;
+    box-shadow: 1px -1px 41px -18px rgba(0,0,0,0.27) inset;
+}
+.bed-front {
+    position: absolute;
+    bottom: 0;
+    width: 145px;
+    height: 15px;
+    bottom: 0px;
+    background-color: white;
+    transform-origin: bottom;
+    transform: rotateX(-90deg) translateY(-21px);
+    box-shadow: 1px -1px 41px -18px rgba(0,0,0,0.47) inset;
+}
+.bed-base-side {
+    position: absolute;
+    right: 0px;
+    width: 15px;
+    height: 190px;
+    background: navy;
+    transform-origin: bottom right;
+    transform: rotateY(90deg) translateX(-6px);
+    transform-style: preserve-3d;
+}
+.bed-base-side::after {
+    content: "";
+    position: absolute;
+    left:  -75px;
+    top: 0px;
+    width: 150px;
+    height: inherit;
+    background: navy;
+    transform: rotateY(90deg) translateX(75px);
+}
+.bed-base-front {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background: navy ;
+    transform-origin: bottom;
+    transform: rotateX(-90deg) translateY(-6px);
+}
