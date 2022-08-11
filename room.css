@@ -275,25 +275,42 @@ body {
     transform-style: preserve-3d;
     position: absolute;
     bottom: 0;
+    left: 10px;
     width: 150px;
     height: 190px;
     box-shadow: 200px 18px 224px -86px rgba(0,0,0,0.49) inset;
 }
 
 .bed-top, .bed-side {
-    background: linear-gradient(rgba(255,255,255,1) 70%, rgb(0, 10, 148) 10%);
+    background: linear-gradient(rgba(255,255,255,1) 70%, rgb(14, 25, 172) 10%);
     background-size: 100% 7px;
     background-repeat: repeat;
     height: 170px;
     transform-style: preserve-3d;
-    box-shadow: 1px -1px 41px -1px rgba(0,0,0,0.36) inset;
 }
 
 .bed-top {
     position: absolute;
     width: 145px;
     transform: translateZ(36px);
+    border-radius: 10px 10px 0px 0;
+    box-shadow: 1px -1px 41px -1px rgba(0,0,0,0.36) inset;
+
 }
+.pillow {
+    position: absolute;
+    width: 65px;
+    height: 29px;
+    background-color: white;
+    box-shadow: -35px -34px 10px -30px rgba(0,0,0,0.48) inset,  -4px -3px 15px -4px rgba(0,0,0,0.73);
+    z-index: 1;
+    bottom: -18px;
+    transform-origin: bottom right;
+    border-radius: 2px;
+}
+.left-pillow {left: 7px; z-index: 2;}
+.right-pillow {right: 7px;}
+
 .bed::before {
     content: "";
     position: absolute;
@@ -305,29 +322,66 @@ body {
 .bed-side {
     position: absolute;
     right: 5px;
+    bottom: 20px;
     width: 15px;
+    height: 164px;
+    background-size: 100% 6px;
     transform-origin: bottom right;
     transform: rotateY(90deg) translateX(-21.3px);
+    box-shadow: 1px -1px 41px -1px rgba(0,0,0,0.66) inset;
 }
 .bed-side::after, .bed-top::after {
     content: "";
     position: absolute;
     background: white;
     width: inherit;
-    bottom: -21px;
-    height: 21px;
-    box-shadow: 1px -1px 41px -18px rgba(0,0,0,0.27) inset;
+    bottom: -20px;
+    height: 20px;
+}
+.bed-side::after {
+    width: inherit;
+    box-shadow: 2px 7px 6px -5px rgba(0,0,0,0.68) inset;
+    height: 14px;
+    bottom: -14px;
+}
+.bed-top::after {
+    box-shadow: 2px 7px 6px -5px rgba(0,0,0,0.68) inset;
+    background-color: white;
+    border-radius:  0 0 10px 10px;
 }
 .bed-front {
     position: absolute;
-    bottom: 0;
-    width: 145px;
-    height: 15px;
-    bottom: 0px;
+    bottom: -7px;
+    left: 6px;
+    width: 133px;
+    height: 16px;
+    transform: rotateX(90deg) translateY(28px);
     background-color: white;
-    transform-origin: bottom;
-    transform: rotateX(-90deg) translateY(-21px);
-    box-shadow: 1px -1px 41px -18px rgba(0,0,0,0.47) inset;
+    transform-style: preserve-3d;
+    box-shadow: 3px -2px 24px -7px rgba(0,0,0,0.74) inset;
+}
+.bed-front::before {
+    content: "";
+    position: absolute;
+    /* right: -4px; */
+    width: 116px;
+    height: 70px;
+    background-color: white;
+    right: -5px;
+    top: -34px;
+    border-radius: 4px;
+    transform: translateZ(35px)  rotateY(0deg) rotateX(90deg);
+}
+.bed-front::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    width: 8px;
+    height: inherit;
+    transform-origin: left top;
+    transform: rotateY(311deg) translateZ(-2.5px) translateX(2.5px);
+    background-color: white;
+    box-shadow: 14px 0px 18px -21px rgba(0,0,0,1) inset;
 }
 .bed-base-side {
     position: absolute;
@@ -338,6 +392,8 @@ body {
     transform-origin: bottom right;
     transform: rotateY(90deg) translateX(-6px);
     transform-style: preserve-3d;
+    box-shadow: 3px -2px 24px -7px rgba(0,0,0,0.94) inset;
+
 }
 .bed-base-side::after {
     content: "";
@@ -346,10 +402,13 @@ body {
     top: 0px;
     width: 150px;
     height: inherit;
-    background: navy;
+    background: rgb(1, 1, 126);
     transform: rotateY(90deg) translateX(75px);
+    box-shadow: 3px -2px 24px -7px rgba(0,0,0,0.04) inset;
+
 }
 .bed-base-front {
+    box-shadow: 3px -2px 24px -7px rgba(0,0,0,0.94) inset;
     position: absolute;
     bottom: 0;
     width: 100%;
